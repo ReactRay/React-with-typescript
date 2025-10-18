@@ -1,5 +1,10 @@
 import { useState } from "react";
 
+
+
+type Person = {
+  name: string,
+}
 function Component() {
 
 
@@ -14,9 +19,15 @@ function Component() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    // const formData = new FormData(e.target as HTMLFormElement)
+
     const data = Object.fromEntries(formData)
-    console.log(data);
+    console.log(data)
+
+    const text = formData.get('text') as string
+    const Person: Person = { name: text }
+
+
+
   }
   return (
     <div>
