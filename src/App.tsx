@@ -1,9 +1,12 @@
 
-import ParentComponent from './starter/07-reducers/index';
+import Component from './starter/08-fetch-data/index';
+
+
+
 function App() {
   return (
     <main>
-      <ParentComponent />
+      <Component />``
     </main>
   );
 }
