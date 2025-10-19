@@ -1,12 +1,29 @@
 import { createContext, useContext, useState } from "react";
 
 
-const ThemeProviderContext = createContext<string | undefined>(undefined);
+type Theme = 'light' | 'dark' | 'system';
 
-
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-
-    <ThemeProviderContext.Provider value='hello'>
-        {children}
-    </ThemeProviderContext.Provider>
+type ThemeProviderState = {
+    theme: Theme;
+    setTheme: (theme: Theme) => void;
 }
+
+export const ThemeProviderContext = createContext<ThemeProviderState | undefined>(undefined);
+
+
+type ThemeProviderProps = {
+    children: React.ReactNode,
+    defaultTheme?: Theme,
+}
+
+export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProviderProps) {
+
+    const [theme, setTheme] = useState<Theme>(defaultTheme);
+
+    return (<ThemeProviderContext.Provider value={{ theme, setTheme }}>
+        {children}
+    </ThemeProviderContext.Provider >)
+
+}
+
+
