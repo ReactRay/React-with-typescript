@@ -1,12 +1,12 @@
 
-import Component from './starter/08-fetch-data/index';
+import Component from './starter/10-tasks'
 
 
 
 function App() {
   return (
     <main>
-      <Component />``
+      <Component />
     </main>
   );
 }
